@@ -1,0 +1,40 @@
+# Creates a conda environment named "sustainbench".
+#
+# Install and update this environment with
+# conda env update -f env_bench.yml --prune
+#
+# Uses conda-forge channel whenever possible to avoid the multiple-channel
+# mismatch problem.
+#   See https://conda-forge.org/docs/user/tipsandtricks.html
+#
+# For TensorFlow 2.5's pinned dependencies, see
+# https://github.com/tensorflow/tensorflow/blob/r2.5/tensorflow/tools/pip_package/setup.py
+name: sustainbench_create
+channels:
+  - pytorch
+  - nvidia                # only needed if using GPU with CUDA 11.1
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9.*            # only supported by TensorFlow 2.5+
+  # - cpuonly                 # from `pytorch` channel, to force only CPU
+  # - cudatoolkit=10.2        # from `pytorch` channel, only needed if using GPU with CUDA 10.2
+  - cudatoolkit=11.1        # from `nvidia` channel, only needed if using GPU with CUDA 11.1
+  - flake8=3.9.*
+  - grpcio=1.34.*             # required for TensorFlow 2.5 compatibility
+  - jupyterlab=3.1.*
+  - mypy=0.910
+  - numpy=1.19.*              # TensorFlow's numpy requirement is pinned: https://github.com/tensorflow/tensorflow/blob/r2.5/tensorflow/tools/pip_package/setup.py
+  - pandas=1.3.*
+  - pip
+  - pytorch=1.9.*             # from `pytorch` channel
+  - scipy=1.7.*
+  - six=1.15.*                # required for TensorFlow 2.5 compatibility
+  - torchvision               # from `pytorch` channel
+  # - tensorflow=1.15.*       # for CPU
+  # - tensorflow-gpu=1.15.*   # for GPU support
+  - tqdm=4.62.*
+  - typing_extensions=3.7.*   # required for TensorFlow 2.5 compatibility
+  - pip:
+    - tensorflow==2.5.*
+

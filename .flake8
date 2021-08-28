@@ -1,0 +1,13 @@
+[flake8]
+# E226: missing whitespace around arithmetic operator
+# E231: missing whitespace after ','
+# E402: module level import not at top of file
+# E501: line too long (> 79 characters)
+# E701: multiple statements on one line (colon)
+ignore = E226, E231, E402, E501, E701
+
+# extend default exclusion list with these files and directories (glob patterns)
+extend-exclude =
+    .git,
+    __pycache__,
+    .ipynb_checkpoints

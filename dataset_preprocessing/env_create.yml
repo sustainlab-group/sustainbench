@@ -1,0 +1,44 @@
+# Creates a conda environment named "sustainbench_create".
+#
+# Install and update this environment with
+# conda env update -f env_create.yml --prune
+#
+# Uses conda-forge channel whenever possible to avoid the multiple-channel
+# mismatch problem.
+#   See https://conda-forge.org/docs/user/tipsandtricks.html
+#
+# For TensorFlow 2.5's pinned dependencies, see
+# https://github.com/tensorflow/tensorflow/blob/r2.5/tensorflow/tools/pip_package/setup.py
+name: sustainbench_create
+channels:
+  - pytorch
+  - conda-forge
+  # - defaults
+dependencies:
+  - python=3.9.*
+  - cpuonly                   # from `pytorch` channel, force CPU-only
+  - earthengine-api=0.1.275
+  - flake8=3.9.*
+  - jupyterlab=3.1.*
+  - ipywidgets
+  - grpcio=1.34.*             # required for TensorFlow 2.5 compatibility
+  - matplotlib=3.4.*
+  - mypy=0.910
+  - nb_conda=2.2.*
+  - numpy=1.19.*              # required for TensorFlow 2.5 compatibility
+  - pandas=1.3.*
+  - pip
+  - pytorch=1.9.*             # from `pytorch` channel
+  - r-base=4.1.0
+  - r-irkernel=1.2
+  - r-foreign=0.8_81
+  - r-lintr=2.0.1
+  - r-readstata13=0.10.0
+  - r-tidyverse=1.3.1
+  - scipy=1.7.*
+  - six=1.15.*                # required for TensorFlow 2.5 compatibility
+  - torchvision               # from `pytorch` channel
+  - tqdm=4.62.*
+  - typing_extensions=3.7.*   # required for TensorFlow 2.5 compatibility
+  - pip:
+    - tensorflow==2.5.*
