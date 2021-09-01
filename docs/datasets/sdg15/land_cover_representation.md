@@ -1,21 +1,23 @@
 ---
 layout: default
 title:  Representation Learning for Land Cover
-parent: Datasets
+parent: "SDG 15: Life on Land"
+grand_parent: Datasets
 ---
+
 # Representation Learning for Land Cover Classification
 Existing state-of-the-art land cover maps are significantly more accurate in high-income regions than low-income ones, as the latter have few ground truth labels. One approach to increase the performance of land cover classification in regions with few labels is to use unsupervised or self-supervised learning to improve satellite/aerial image representations, so that downstream tasks require fewer labels to perform well.
 
-<p align="center">
-<img src="../../assets/images/tile2vec_examples.jpg" width="400" title="NAIP image and label examples">
+<p style="text-align: center">
+<img src="{{ site.baseurl }}/assets/images/tile2vec_examples.jpg" width="400" title="NAIP image and label examples">
 </p>
 
 ## Dataset Overview
 
 We release the full high-resolution aerial imagery dataset from [1], which covers a 2500 square kilometer (12 billion pixel) area  of Central Valley, CA in the United States. The study region spans latitudes [36.45, 37.05] and longitudes [-120.25, -119.65].
 
-<p align="center">
-<img src="../../assets/images/tile2vec_study_region.png" width="600" title="Study area in Central Valley, CA, USA">
+<p style="text-align: center">
+<img src="{{ site.baseurl }}/assets/images/tile2vec_study_region.png" width="600" title="Study area in Central Valley, CA, USA">
 </p>
 
 ### Input
@@ -35,6 +37,7 @@ The data can be downloaded [here](TBD).
 
 
 ## Citation
+
 ```
 @article{jean2019tile2vec,
   Author = {Jean, Neal and Wang, Sherrie and Samar, Anshul and Azzari, George and Lobell, David and Ermon, Stefano},
@@ -47,7 +50,7 @@ The data can be downloaded [here](TBD).
   Year = {2019}}
 ```
 
-## Reference 
+## Reference
 [1] N. Jean, S. Wang, A. Samar, G. Azzari, D. Lobell, and S. Ermon.  Tile2vec:  Unsupervised representation learning for spatially distributed data. Proceedings of the AAAI Conference on Artificial Intelligence, 33(01):3967–3974, Jul. 2019.
 
 [2] National  Agricultural  Statistics  Service.USDA  National  Agricultural  Statistics  Service  Cropland  Data  Layer.  Published  crop-specific  data  layer  [Online].  Available  at https://nassgeodata.gmu.edu/CropScape/ (accessed 2019-08-29; verified 2019-08-29), 2018.

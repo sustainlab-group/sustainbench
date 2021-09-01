@@ -1,14 +1,15 @@
 ---
 layout: default
-title:  Crop Type Mapping (Kenya)
-parent: Datasets
+title: Crop Type Mapping (Kenya)
+parent: "SDG 2: Zero Hunger"
+grand_parent: Datasets
 ---
 
 # Crop Type Mapping in Kenya
 Spatially disaggregated crop type maps are needed to assess agricultural diversity and estimate yields. While crop type maps are produced annually by departments of agriculture in high-income countries across North America and Europe, they are currently not available for middle- and low-income countries. Mapping crop types in smallholder regions faces challenges of small fields, sparse ground truth labels, intercropping, and highly heterogeneous landscapes.
 
 <p style="text-align: center">
-<img src="../../assets/images/crop_type_kenya_example.png" width="600" title="Sentinel-2 time series">
+<img src="{{ site.baseurl }}/assets/images/crop_type_kenya_example.png" width="600" title="Sentinel-2 time series">
 </p>
 
 ## Dataset Overview

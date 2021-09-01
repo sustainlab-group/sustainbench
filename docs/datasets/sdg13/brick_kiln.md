@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Brick Kiln Classification
-parent: Datasets
+parent: "SDG 13: Climate Action"
+grand_parent: Datasets
 ---
 # Brick Kiln Classification (Bangladesh)
 

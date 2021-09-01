@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Crop Type Mapping (Ghana and South Sudan)
-parent: Datasets
+parent: "SDG 2: Zero Hunger"
+grand_parent: Datasets
 ---
 
 # Crop Type Mapping (Ghana and South Sudan)

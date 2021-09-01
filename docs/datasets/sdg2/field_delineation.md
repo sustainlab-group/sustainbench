@@ -1,16 +1,17 @@
 ---
 layout: default
 title: Field Delineation
-parent: Datasets
+parent: "SDG 2: Zero Hunger"
+grand_parent: Datasets
 ---
 
 # Field Delineation (France)
 Field delineation is important in developing and managing agricultural-related policies. Given an input satellite image, the goal is to output the delineated boundaries between farm parcels, or the segmentation masks of farm parcels.
 
 <p style="text-align: center">
-<img src="../../assets/images/farmland1.jpg" width="200" title="Sentinel-2 (input)">
-<img src="../../assets/images/farmland2.png" width="200" title="Delineated boundaries">
-<img src="../../assets/images/farmland3.png" width="200" title="Segmentation masks">
+<img src="{{ site.baseurl }}/assets/images/farmland1.jpg" width="200" title="Sentinel-2 (input)">
+<img src="{{ site.baseurl }}/assets/images/farmland2.png" width="200" title="Delineated boundaries">
+<img src="{{ site.baseurl }}/assets/images/farmland3.png" width="200" title="Segmentation masks">
 </p>
 
 

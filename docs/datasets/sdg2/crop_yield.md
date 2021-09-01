@@ -1,7 +1,8 @@
 ---
 layout: default
 title:  Crop Yield Prediction
-parent: Datasets
+parent: "SDG 2: Zero Hunger"
+grand_parent: Datasets
 use_math: true
 ---
 
@@ -18,7 +19,7 @@ Accurate measurement of crop yields is crucial to tracking progress in farmland 
 
 ## Details
 
-Our dataset is based on the datasets used in [1] and [2]. We release county-level yields for 857 counties in the United States, 135 in Argentina, and 32 in Brazil for the years 2005-2016, with a total of 9049 datapoints in the United States, 1615 in Argentina, and 384 in Brazil.. The inputs are spectral band and temperature histograms over each county for the harvest season, derived from MODIS satellite images of each region. The outputs are soybean yields in metric tonnes per harvested hectare over the counties. As in [1], we create a 60-20-20 train-validation-test split for each of the three countries.
+Our dataset is based on the datasets used in [1] and [2]. We release county-level yields for 857 counties in the United States, 135 in Argentina, and 32 in Brazil for the years 2005-2016, with a total of 9049 datapoints in the United States, 1615 in Argentina, and 384 in Brazil. The inputs are spectral band and temperature histograms over each county for the harvest season, derived from MODIS satellite images of each region. The outputs are soybean yields in metric tonnes per harvested hectare over the counties. As in [1], we create a 60-20-20 train-validation-test split for each of the three countries.
 
 ## Data Format
 ### Input

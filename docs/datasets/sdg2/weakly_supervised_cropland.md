@@ -1,14 +1,15 @@
 ---
 layout: default
 title:  Weakly Supervised Cropland Segmentation
-parent: Datasets
+parent: "SDG 2: Zero Hunger"
+grand_parent: Datasets
 ---
 
 # Weakly Supervised Cropland Segmentation
 One indicator for SDG 2 is the proportion of agricultural area under productive and sustainable agriculture. Existing state-of-the-art datasets on land cover are derived from satellite time series and include a cropland class. However, the maps are known to have large errors in regions of the world like Sub-Saharan Africa where ground labels are sparse [1]. Therefore, while mapping cropland is largely a solved problem in settings with ample labels, devising methods to efficiently generate georeferenced labels and accurately map cropland in low-resource regions remains an important and challenging research direction.
 
 <p style="text-align: center">
-<img src="../../assets/images/cropland_example.png" width="500" title="Weak labels for cropland segmentation">
+<img src="{{ site.baseurl }}/assets/images/cropland_example.png" width="500" title="Weak labels for cropland segmentation">
 </p>
 
 ## Dataset Overview
@@ -18,7 +19,7 @@ We release a dataset for performing weakly supervised classification of cropland
 The study area spans from 37°N to 41°30'N and from 94°W to 86°W, and covers an area of over 450,000 square kilometers in the Midwestern United States. We chose this region because the US Department of Agriculture (USDA) maintains high-quality pixel-level land cover labels across the US [3], allowing us to evaluate the performance of algorithms. Land cover-wise, the study region is 44% cropland and 56% non-crop (mostly temperate forest).
 
 <p style="text-align: center">
-<img src="../../assets/images/cropland_study_region.jpg" width="600" title="Cropland task study region">
+<img src="{{ site.baseurl }}/assets/images/cropland_study_region.jpg" width="600" title="Cropland task study region">
 </p>
 
 ### Input

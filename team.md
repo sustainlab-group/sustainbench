@@ -11,19 +11,19 @@ nav_order: 6
   <tr>
     <td><div style="margin: 0 auto; width: 130px; text-align: center">
       <img src="{{ site.baseurl }}/assets/images/team/chrisyeh.jpg" class="img-responsive" />
-      <strong><a href="https://chrisyeh96.github.io/">Christopher Yeh</a></strong><br />Caltech University
+      <strong><a href="https://chrisyeh96.github.io/">Christopher Yeh</a></strong><br />Caltech
     </div></td>
     <td><div style="margin: 0 auto; width: 130px; text-align: center">
       <img src="{{ site.baseurl }}/assets/images/team/chenlinmeng.jpg" class="img-responsive" />
-      <strong><a href="http://sustain.stanford.edu/">Chenlin Meng</a></strong><br />Stanford University
+      <strong><a href="https://cs.stanford.edu/~chenlin/">Chenlin Meng</a></strong><br />Stanford University
     </div></td>
     <td><div style="margin: 0 auto; width: 130px; text-align: center">
       <img src="{{ site.baseurl }}/assets/images/team/sherriewang.jpg" class="img-responsive" />
-      <strong><a href="http://sustain.stanford.edu/">Sherrie Wang</a></strong><br />UC Berkeley
+      <strong><a href="https://sustain.stanford.edu/">Sherrie Wang</a></strong><br />UC Berkeley
     </div></td>
     <td><div style="margin: 0 auto; width: 130px; text-align: center">
       <img src="{{ site.baseurl }}/assets/images/africa-croptype1.png" class="img-responsive" />
-      <strong><a href="http://sustain.stanford.edu/">Anne Driscoll</a></strong><br />Stanford University
+      <strong><a href="https://sustain.stanford.edu/">Anne Driscoll</a></strong><br />Stanford University
     </div></td>
     <td><div style="margin: 0 auto; width: 130px; text-align: center">
       <img src="{{ site.baseurl }}/assets/images/team/erikrozi.png" class="img-responsive" />
@@ -33,7 +33,7 @@ nav_order: 6
   <tr>
     <td><div style="margin: 0 auto; width: 130px; text-align: center">
       <img src="{{ site.baseurl }}/assets/images/team/patrickliu.jpg" class="img-responsive" />
-      <strong><a href="http://sustain.stanford.edu/">Patrick Liu</a></strong><br />Stanford University
+      <strong><a href="https://sustain.stanford.edu/">Patrick Liu</a></strong><br />Stanford University
     </div></td>
     <td><div style="margin: 0 auto; width: 130px; text-align: center">
       <img src="{{ site.baseurl }}/assets/images/team/jihyeonlee.jpg" class="img-responsive" />
@@ -41,7 +41,7 @@ nav_order: 6
     </div></td>
     <td><div style="margin: 0 auto; width: 130px; text-align: center">
       <img src="{{ site.baseurl }}/assets/images/team/marshallburke.jpg" class="img-responsive" />
-      <strong><a href="http://web.stanford.edu/~mburke/">Marshall Burke</a></strong><br />Stanford University
+      <strong><a href="https://web.stanford.edu/~mburke/">Marshall Burke</a></strong><br />Stanford University
     </div></td>
     <td><div style="margin: 0 auto; width: 130px; text-align: center">
       <img src="{{ site.baseurl }}/assets/images/team/davidlobell.jpg" class="img-responsive" />
