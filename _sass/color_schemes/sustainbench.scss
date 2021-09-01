@@ -1,0 +1,39 @@
+$green-000: #3f552a;
+$green-100: #5e803f;
+$green-300: #c8d4bd;
+
+$grey-lt-000: #f6faf6;
+$grey-lt-100: #ebeeeb;
+$grey-lt-200: #ebedeb;
+$grey-lt-300: #e1e8e1;
+
+$link-color: $green-100;
+$btn-primary-color: $green-000;
+
+$sidebar-color: $grey-lt-000;
+$code-background-color: $grey-lt-000;
+$feedback-color: darken($sidebar-color, 3%);
+
+//
+// Grid system
+//
+
+$gutter-spacing: $sp-6;
+$gutter-spacing-sm: $sp-4;
+$nav-width: 224px;
+$nav-width-md: 208px;
+$nav-list-item-height: $sp-6;
+$nav-list-item-height-sm: $sp-8;
+$nav-list-expander-right: true;
+$content-width: 1200px;
+$header-height: 60px;
+$search-results-width: $content-width - $nav-width;
+$transition-duration: 400ms;
+
+$media-queries: (
+  xs: 320px,
+  sm: 500px,
+  md: $content-width,
+  lg: $content-width + $nav-width,
+  xl: 1400px,
+);

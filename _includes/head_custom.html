@@ -1,0 +1,22 @@
+{% comment %}
+This file replaces the default (empty) head_custom.html that comes with the "Just the Docs" jekyll theme. The head_custom.html file is inserted at the end of the HTML <head> section. See https://github.com/pmarsceill/just-the-docs/blob/master/_includes/head.html.
+{% endcomment %}
+
+{%- if page.use_math -%}
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        macros: {
+          E: "{\\mathbb{E}}",
+          R: "{\\mathbb{R}}"
+        },
+        // Use AMS numbering rules and support labeled equations.
+        // See https://docs.mathjax.org/en/latest/input/tex/eqnumbers.html
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script type="text/javascript" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+{%- endif -%}

@@ -29,6 +29,14 @@ url: "https://sustainlab-group.github.io" # the base hostname & protocol for you
 remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
+color_scheme: sustainbench
+logo: "/assets/images/logo.png"
+
+aux_links:
+  "SustainBench GitHub":
+    - "//github.com/sustainlab-group/sustainbench/"
+
+aux_links_new_tab: false
 
 # Enable or disable the site search
 # Supports true (default) or false

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Get Started
-nav_order: 1
+nav_order: 3
 ---
 # Overview
 
