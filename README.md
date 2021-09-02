@@ -1,24 +1,74 @@
-# SustainBench
+[**Datasets**](https://sustainlab-group.github.io/sustainbench/docs/datasets/) |
+[**Website**](https://sustainlab-group.github.io/sustainbench/) |
+[**Raw Data**](https://drive.google.com/drive/folders/1jyjK5sKGYegfHDjuVBSxCoj49TD830wL?usp=sharing) |
+[**OpenReview**](https://openreview.net/forum?id=5HR3vCylqD)
 
-This repository includes the code and data necessary to reproduce the results and figures for the article "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning" submitted to the 2021 NeurIPS Conference, Datasets and Benchmarks Track on [OpenReview](https://openreview.net/forum?id=5HR3vCylqD).
+# SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning
 
-Please cite this article as follows, or use the BibTeX entry below.
+[Christopher Yeh](https://chrisyeh96.github.io/), [Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Sherrie Wang](http://stanford.edu/~sherwang/), Anne Driscoll, [Erik Rozi](https://www.linkedin.com/in/erik-rozi/), Patrick Liu, [Jihyeon Lee](https://jlee24.github.io/), [Marshall Burke](http://web.stanford.edu/~mburke/), [David B. Lobell](https://fse.fsi.stanford.edu/people/david_lobell), [Stefano Ermon](https://cs.stanford.edu/~ermon/)
 
-> citation
+**California Institute of Technology, Stanford University, and UC Berkeley**
 
-```tex
-@article{
-    TODO
-}
-```
+SustainBench is a collection of 15 benchmark tasks across 7 SDGs, including tasks related to economic development, agriculture, health, education, water and sanitation, climate action, and life on land. **Datasets for 11 of the 15 tasks are released publicly for the first time.** Our goals for SustainBench are to
+1. lower the barriers to entry for the machine learning community to contribute to measuring and achieving the SDGs;
+2. provide standard benchmarks for evaluating machine learning models on tasks across a variety of SDGs; and
+3. encourage the development of novel machine learning methods where improved model performance facilitates progress towards the SDGs.
 
 
 ## Table of Contents
 
-* [Computing Requirements](#computing-requirements)
+* [Overview](#overview)
+* [Dataloaders](#dataloaders)
 * [Running Baseline Models](#running-baseline-models)
 * [Dataset Preprocessing](#dataset-preprocessing)
+* [Computing Requirements](#computing-requirements)
 * [Code Formatting and Type Checking](#code-formatting-and-type-checking)
+* [Citation](#citation)
+
+
+## Overview
+
+SustainBench provides datasets and standardized benchmarks for 15 SDG-related tasks, listed below. Details for each dataset and task can be found in our [**paper**](https://openreview.net/forum?id=5HR3vCylqD) and on our [**website**](https://sustainlab-group.github.io/sustainbench/). The raw data can be downloaded from [**Google Drive**](https://drive.google.com/drive/folders/1jyjK5sKGYegfHDjuVBSxCoj49TD830wL?usp=sharing) and is released under a [CC-BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/).
+
+<img src="https://github.com/sustainlab-group/sustainbench/blob/gh-pages/assets/images/fig1.png" width="600">
+
+- **SDG 1: No Poverty**
+  - [Task 1A](https://sustainlab-group.github.io/sustainbench/docs/datasets/dhs.html): Predicting poverty over space
+  - [Task 1B](#): Predicting change in poverty over time
+- **SDG 2: Zero Hunger**
+  - [Task 2A](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg2/weakly_supervised_cropland.html): Cropland mapping
+  - [Task 2B1](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg2/crop_type_mapping_ghana-ss.html): Crop type mapping, in Ghana in South Sudan
+  - [Task 2B2](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg2/crop_type_mapping_kenya.html): Crop type mapping, in Kenya
+  - [Task 2C](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg2/crop_yield.html): Crop yield prediction
+  - [Task 2D](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg2/field_delineation.html): Field delineation
+- **SDG 3: Good Health and Well-being**
+  - [Task 3A](https://sustainlab-group.github.io/sustainbench/docs/datasets/dhs.html): Child mortality rate
+  - [Task 3B](https://sustainlab-group.github.io/sustainbench/docs/datasets/dhs.html): Women BMI
+- **SDG 4: Quality Education**
+  - [Task 4A](https://sustainlab-group.github.io/sustainbench/docs/datasets/dhs.html): Women educational attainment
+- **SDG 6: Clean Water and Sanitation**
+  - [Task 6A](https://sustainlab-group.github.io/sustainbench/docs/datasets/dhs.html): Clean water
+  - [Task 6B](https://sustainlab-group.github.io/sustainbench/docs/datasets/dhs.html): Sanitation
+- **SDG 13: Climate Action**
+  - [Task 13A](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg13/brick_kiln.html): Brick kiln classification
+- **SDG 15: Life on Land**
+  - [Task 15A](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg15/land_cover_representation.html): Feature learning for land cover classification
+  - [Task 15B](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg15/out_of_domain_land_cover.html): Out-of-domain land cover classification
+
+
+## Dataloaders
+
+For each dataset, we provide Python dataloaders that load the data as PyTorch tensors. Please see the `sustainbench` folder as well as our [website](https://sustainlab-group.github.io/sustainbench/) for detailed documentation.
+
+
+## Running Baseline Models
+
+We provide baseline models for many of the benchmark tasks included in SustainBench. See the `baseline_models` folder for the code and detailed instructions to reproduce our results.
+
+
+## Dataset Preprocessing
+
+11 of the 15 SustainBench benchmark tasks involve data that is being publicly released for the first time. We release the processed versions of our datasets on [Google Drive](https://drive.google.com/drive/folders/1jyjK5sKGYegfHDjuVBSxCoj49TD830wL?usp=sharing). However, we also provide code and detailed instructions for how we preprocessed the datasets in the `dataset_preprocessing` folder. You do NOT need anything from the `dataset_preprocessing` folder for downloading the processed datasets or running our baseline models.
 
 
 ## Computing Requirements
@@ -39,16 +89,6 @@ conda env update -f env_bench.yml --prune
 ```
 
 The conda environment files default to CPU-only packages. If you have a GPU, please comment/uncomment the appropriate lines in the environment files; you may need to also install CUDA 10 or 11 and cuDNN 7.
-
-
-## Running Baseline Models
-
-We provide baseline models for many of the benchmark tasks included in SustainBench. See the `baseline_models` folder for the code and detailed instructions to reproduce our results.
-
-
-## Dataset Preprocessing
-
-11 of the 15 SustainBench benchmark tasks involve data that is being publicly released for the first time. We already release the processed versions of our dataset on [Google Drive](https://drive.google.com/drive/folders/1jyjK5sKGYegfHDjuVBSxCoj49TD830wL?usp=sharing). However, we also provide code and detailed instructions for downloading and processing the data in the `dataset_preprocessing` folder. This is NOT necessary for running our baseline models.
 
 
 ## Code Formatting and Type Checking
@@ -92,4 +132,17 @@ mypy path/to/module.py
 
 # a jupyter notebook
 mypy -c "$(jupyter nbconvert path/to/notebook.ipynb --stdout --to script)"
+```
+
+
+## Citation
+
+Please cite this article as follows, or use the BibTeX entry below.
+
+> citation
+
+```tex
+@article{
+    TODO
+}
 ```
