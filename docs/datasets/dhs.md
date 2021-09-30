@@ -7,12 +7,10 @@ use_math: true
 
 # DHS survey-based datasets
 
-Despite decades of progress, as of 2020 an estimated 9.5% of the global population remains in extreme poverty, 3.8% of children die before age 5 (as of 2019), 47% of children do not complete secondary school (as of 2019), 25.7% of people lack safely managed drinking water, and 46% of people lack safely managed sanitation [1]. While such statistics are generally accurate at the global level, significantly less data is available at local or even country levels. In most African countries, for example, nationally representative consumption or asset wealth surveys, the key source of internationally comparable poverty measurements, are only available once every four years or less [2]. In contrast, satellite and street-level imagery are becoming increasingly available, and previous works [2,3] have shown that such imagery can be predictive of SDG-relevant local-level statistics.
+Despite decades of progress, as of 2020 an estimated 9.5% of the global population remains in extreme poverty, 3.8% of children die before age 5 (as of 2019), 47% of children do not complete secondary school (as of 2019), 25.7% of people lack safely managed drinking water, and 46% of people lack safely managed sanitation [[1]](#references). While such statistics are generally accurate at the global level, significantly less data is available at local or even country levels. In most African countries, for example, nationally representative consumption or asset wealth surveys, the key source of internationally comparable poverty measurements, are only available once every four years or less [[2]](#references). In contrast, satellite and street-level imagery are becoming increasingly available, and previous works [[2,3]](#references) have shown that such imagery can be predictive of SDG-relevant local-level statistics.
 
 <p style="text-align: center">
-    <img src="{{ site.baseurl }}/assets/images/landsat.png" width="200" height="200" title="Landsat satellite image">
-    <img src="{{ site.baseurl }}/assets/images/dmsp.png" width="200" height="200" title="Nightlights (DMSP) image">
-    <img src="{{ site.baseurl }}/assets/images/mapillary.jpeg" width="200" title="Street-level (Mapillary) image">
+<img src="{{ site.baseurl }}/assets/images/dhs_summary.png" width="800" title="SustainBench DHS-based datasets">
 </p>
 
 ## Details
@@ -22,7 +20,7 @@ SustainBench includes 6 regression tasks derived from survey data from the [Demo
 The labels for each of the 6 tasks are as follows:
 
 - SDG 1: No Poverty
-  - **asset wealth index**: We use a principal components analysis (PCA)-based approach to calculate a scalar asset wealth index per household, and we then take the cluster-level average. We refer to cluster-level wealth (or its absence) as "poverty". The asset wealth index is constructed in a similar manner to [2].
+  - **asset wealth index**: We use a principal components analysis (PCA)-based approach to calculate a scalar asset wealth index per household, and we then take the cluster-level average. We refer to cluster-level wealth (or its absence) as "poverty". The asset wealth index is constructed in a similar manner to [[2]](#references).
 - SDG 3: Good Health and Well-being
   - **women BMI**: The women BMI includes all women between the ages of 15 and 49, excluding pregnant women as the BMI is not adjusted for them. We take the cluster level mean of reported BMI/100.
   - **child mortality rate**: The child mortality rate covers children who were age 5 or younger at the time of survey or who had died (age 5 or younger) no earlier than the year prior to the survey. After identifying the qualifying children, we calculate the number of deaths per 1,000 children by cluster.
@@ -45,6 +43,13 @@ SustainBench provides both satellite and street-level imagery as model inputs.
 
 - **satellite imagery**: The satellite imagery consists of both daytime images from the Landsat 5/7/8 satellites and nightlights images from the DMSP and VIIRS satellites. While the daytime image bands have a native 30m/pixel resolution, the nightlights images have a lower native resolution and are upsampled using the nearest-neighbors algorithm to match the daytime image resolution. For clusters from surveys taken in 2011 or earlier, the nightlights image comes from DMSP; for clusters from surveys taken in 2012 or later, the nightlights image comes from VIIRS. Because DMSP and VIIRS imagery are not directly comparable, we recommend users to treat DMSP and VIIRS imagery separately in their models.
 - **street-level imagery**: Mapillary images that fall within 0.01 degrees latitude and longitude of a DHS cluster and were captured within 1 year before or after a DHS cluster datapoint were retrieved and matched to their respective cluster. There are a maximum of 100 images per cluster. The shortest side of all images is 1024 pixels. We also provide metadata for each image, including its unique Mapillary ID, latitude, longitude, and timestamp of capture in miliseconds.
+
+<figure style="text-align: center">
+    <img src="{{ site.baseurl }}/assets/images/landsat.png" width="200" height="200" title="Landsat satellite image">
+    <img src="{{ site.baseurl }}/assets/images/dmsp.png" width="200" height="200" title="Nightlights (DMSP) image">
+    <img src="{{ site.baseurl }}/assets/images/mapillary.jpeg" width="200" title="Street-level (Mapillary) image">
+    <figcaption>Landsat (left), nightlights (middle), and street-level Mapillary images (right).</figcaption>
+</figure>
 
 For all of the tasks based on DHS survey data, we use a uniform train/validation/test dataset split by country. Delineating by country ensures that there is no overlap between any of the splits--_i.e._, a model trained on our train split will not have "seen" any part of any image from the test split. The splits are listed in the following table:
 
