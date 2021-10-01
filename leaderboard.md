@@ -34,7 +34,7 @@ Jump to:
 ## Poverty prediction over space
 
 | Rank | Model | Satellite image inputs? | Street-level image inputs? | Test $$r^2$$ | Reference | Date | Code | Notes |
-|:-----|:------|:-------------|:----------|:-----|:-----|:------|
+|:-----|:------|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 | 1    | Baseline: KNN | Yes, mean (scalar) nightlights | No | 0.63 | SustainBench [[1](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/sustainbench/blob/main/baseline_models/dhs/knn_baseline.ipynb)
 
 
@@ -47,86 +47,91 @@ Jump to:
 
 ## Weakly supervised cropland classification
 
-TODO
+| Rank | Model | Location | F1 score (pixel label) | F1 score (image label) | Reference | Date | Notes |
+|:-----|:------|:---------|:-----------------------|:-----------------------|:----------|:-----|:------|
+| 1    | U-Net | United States | 0.88 | 0.80 | [[11](#references)] | 2019-06-01 |
 
 
 ## Crop type classification
-
-TODO
-
-## Crop type mapping
+<!-- ## Crop type mapping -->
 
 | Rank | Model | Location | Macro F1 | Accuracy | Reference | Date | Notes |
-|:-----|:-----------------|:----------------|:-------------|:-----------------|:----------|:-----|:------|
-| 1    | Rustowicz et al. | Ghana | 57.3 | 60.9% | [[6](#references)] | 2019-06-01 | 
-| 1    | Rustowicz et al. | South Sudan | 69.7 | 85.3% | [[6](#references)] | 2019-06-01 | 
+|:-----|:------|:---------|:---------|:---------|:----------|:-----|:------|
+| 1    | Rustowicz et al. | Ghana       | 57.3 | 60.9% | [[6](#references)] | 2019-06-01 |
+| 1    | Rustowicz et al. | South Sudan | 69.7 | 85.3% | [[6](#references)] | 2019-06-01 |
+
 
 ## Crop yield prediction
 
 | Rank | Model | Train countries | Test country | Test RMSE (t/ha) | Reference | Date | Notes |
 |:-----|:------|:----------------|:-------------|:-----------------|:----------|:-----|:------|
-| 1    | You et al. | USA | USA | 0.37 | [[7](#references)] | 2021-08-27 | 
-| 1    | Wang et al. | Argentina | Argentina | 0.62 | [[6](#references)] | 2021-08-27 | 
-| 1    | Wang et al. | Argentina, Brazil | Brazil | 0.42 | [[6](#references)] | 2021-08-27 | 
+| 1    | You et al.  | USA               | USA       | 0.37 | [[7](#references)] | 2021-08-27 |
+| 1    | Wang et al. | Argentina         | Argentina | 0.62 | [[6](#references)] | 2021-08-27 |
+| 1    | Wang et al. | Argentina, Brazil | Brazil    | 0.42 | [[6](#references)] | 2021-08-27 |
 
 
 ## Field delineation
 
-| Rank | Model | Train country | Test country  | Test Dice score | Reference | Date | Code | Notes |
-|:-----|:------|:-------------|:----------|:-----|:-----|:------|
-| 1    | Aung et al. | France | France | 0.61 |[[3](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/ParcelDelineation)
+| Rank | Model | Country | Test Dice score | Reference | Date | Code | Notes |
+|:-----|:------|:--------|:----------------|:----------|:-----|:-----|:------|
+| 1    | Aung et al. | France | 0.61 |[[3](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/ParcelDelineation)
 
 
 ## Child mortality rate
 
 | Rank | Model | Satellite image inputs? | Street-level image inputs? | Test $$r^2$$ | Reference | Date | Code | Notes |
-|:-----|:------|:-------------|:----------|:-----|:-----|:------|
+|:-----|:------|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 | 1    | Baseline: KNN | Yes, mean (scalar) nightlights | No | 0.01 | SustainBench [[1](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/sustainbench/blob/main/baseline_models/dhs/knn_baseline.ipynb)
+
 
 ## Women BMI
 
 | Rank | Model | Satellite image inputs? | Street-level image inputs? | Test $$r^2$$ | Reference | Date | Code | Notes |
-|:-----|:------|:-------------|:----------|:-----|:-----|:------|
-| 1    | Lee et al. | No | Yes | 0.57 (India) | [[8](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/mapillarygcn)
-| 2    | Baseline: KNN | Yes, mean (scalar) nightlights | No | 0.42 | SustainBench [[1](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/sustainbench/blob/main/baseline_models/dhs/knn_baseline.ipynb)
+|:-----|:------|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
+| 1    | Baseline: KNN | Yes, mean (scalar) nightlights | No | 0.42 | SustainBench [[1](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/sustainbench/blob/main/baseline_models/dhs/knn_baseline.ipynb)
+| **   | GCN (Lee et al.) | No | Yes | 0.57 (India) | [[8](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/mapillarygcn) | This model was only trained and tested on India labels. |
 
 
 ## Women educational attainment
 
 | Rank | Model | Satellite image inputs? | Street-level image inputs? | Test $$r^2$$ | Reference | Date | Code | Notes |
-|:-----|:------|:-------------|:----------|:-----|:-----|:------|
+|:-----|:------|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 | 1    | Baseline: KNN | Yes, mean (scalar) nightlights | No | 0.26 | SustainBench [[1](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/sustainbench/blob/main/baseline_models/dhs/knn_baseline.ipynb)
 
 
 ## Water quality index
 
 | Rank | Model | Satellite image inputs? | Street-level image inputs? | Test $$r^2$$ | Reference | Date | Code | Notes |
-|:-----|:------|:-------------|:----------|:-----|:-----|:------|
+|:-----|:------|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 | 1    | Baseline: KNN | Yes, mean (scalar) nightlights | No | 0.40 | SustainBench [[1](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/sustainbench/blob/main/baseline_models/dhs/knn_baseline.ipynb)
 
 
 ## Sanitation index
 
 | Rank | Model | Satellite image inputs? | Street-level image inputs? | Test $$r^2$$ | Reference | Date | Code | Notes |
-|:-----|:------|:-------------|:----------|:-----|:-----|:------|
+|:-----|:------|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 | 1    | Baseline: KNN | Yes, mean (scalar) nightlights | No | 0.36 | SustainBench [[1](#references)] | 2021-08-27 | [link](https://github.com/sustainlab-group/sustainbench/blob/main/baseline_models/dhs/knn_baseline.ipynb)
 
 
 ## Brick kiln detection
 
-| Rank | Model | Train country | Test country | Test Accuracy | Reference | Date | Code | Notes |
-|:-----|:------|:-------------|:----------|:-----|:-----|:------|
-| ** (higher res imagery)    | Lee et al. | Bangladesh | Bangladesh | 94.2% | [[4](#references)] | 2021-08-27 | [link](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HVGW8L)
+| Rank | Model | Country | Test Accuracy | Reference | Date | Code | Notes |
+|:-----|:------|:--------|:--------------|:----------|:-----|:-----|:------|
+| **   | Lee et al. | Bangladesh | 94.2% | [[4](#references)] | 2021-08-27 | [link](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HVGW8L)| [[4](#references)] used higher res images
 
 
 ## Representation learning for land cover
 
-TODO(Sherrie)
+| Rank | Model | Country | Test Accuracy | Reference | Date | Code | Notes |
+|:-----|:------|:--------|:--------------|:----------|:-----|:-----|:------|
+| 1    | Tile2Vec with ResNet-50 | United States | 0.55 (n= 1,000) 0.58 (n= 10,000) | [[9](#references)] | 2021-08-27 | [link](https://github.com/ermongroup/tile2vec)
 
 
 ## Out-of-domain land cover classification
 
-TODO (Sherrie)
+| Rank | Model | Country | Test Kappa | Reference | Date | Notes |
+|:-----|:------|:--------|:-----------|:----------|:-----|:------|
+| 1    | MAML with shallow 1D CNN | Global | 0.32 (1-shot, 2-way) | [[10](#references)] | 2021-08-27 |
 
 
 ## References
@@ -141,8 +146,14 @@ TODO (Sherrie)
 
 [5] R. Rustowicz, R. Cheong, L. Wang, S. Ermon, M. Burke, and D. Lobell. Semantic segmentation of crop type in africa: A novel dataset and analysis of deep learning methods. InProceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, June 2019.
 
-[6] A. X. Wang, C. Tran, N. Desai, D. Lobell, and S. Ermon. Deep transfer learning for crop yield571prediction with remote sensing data. InProceedings of the 1st ACM SIGCAS Conference on Computing and Sustainable Societies, COMPASS ’18, New York, NY, USA, 2018. Association for Computing Machinery. ISBN 9781450358163. doi: 10.1145/3209811.3212707. URL [https://doi.org/10.1145/3209811.3212707](https://doi.org/10.1145/3209811.3212707).
+[6] A. X. Wang, C. Tran, N. Desai, D. Lobell, and S. Ermon. Deep transfer learning for crop yield prediction with remote sensing data. In Proceedings of the 1st ACM SIGCAS Conference on Computing and Sustainable Societies, COMPASS ’18, New York, NY, USA, 2018. Association for Computing Machinery. ISBN 9781450358163. doi: 10.1145/3209811.3212707. URL [https://doi.org/10.1145/3209811.3212707](https://doi.org/10.1145/3209811.3212707).
 
 [7] J. You, X. Li, M. Low, D. Lobell, and S. Ermon. Deep gaussian process for crop yield prediction591based on remote sensing data. 2017. URL [https://aaai.org/ocs/index.php/AAAI/592AAAI17/paper/view/14435](https://cs.stanford.edu/~ermon/papers/cropyield_AAAI17.pdf).
 
 [8] J. Lee, D. Grosz, B. Uzkent, S. Zeng, M. Burke, D. Lobell, and S. Ermon. Predicting Livelihood Indicators from Community-Generated Street-Level Imagery. Proceedings of the AAAI Conference on Artificial Intelligence, 35(1):268–276, 5 2021. ISSN 2374-3468. URL [https://ojs.aaai.org/index.php/AAAI/article/view/16101](https://ojs.aaai.org/index.php/AAAI/article/view/16101).
+
+[9] N. Jean, S. Wang, A. Samar, G. Azzari, D. Lobell, and S. Ermon. Tile2vec: Unsupervised representation learning for spatially distributed data. Proceedings of the AAAI Conference on Artificial Intelligence, 33(01):3967–3974, Jul. 2019. URL [https://arxiv.org/abs/1805.02855](https://arxiv.org/abs/1805.02855)
+
+[10] S. Wang, M. Rußwurm, M. Körner, and D. B. Lobell. Meta-learning for few-shot time series classification. In IGARSS 2020 - 2020 IEEE International Geoscience and Remote Sensing Symposium, pages 7041–7044, 2020. doi: 10.1109/IGARSS39084.2020.9441016. URL [https://ieeexplore.ieee.org/document/9441016](https://ieeexplore.ieee.org/document/9441016)
+
+[11] S. Wang, W. Chen, S. M. Xie, G. Azzari, and D. B. Lobell. Weakly supervised deep learning for segmentation of remote sensing imagery.Remote Sensing, 12(2), 2020. URL [https://www.mdpi.com/2072-4292/12/2/207](https://www.mdpi.com/2072-4292/12/2/207)
