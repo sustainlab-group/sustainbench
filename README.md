@@ -34,7 +34,7 @@ SustainBench provides datasets and standardized benchmarks for 15 SDG-related ta
 
 - **SDG 1: No Poverty**
   - [Task 1A](https://sustainlab-group.github.io/sustainbench/docs/datasets/dhs.html): Predicting poverty over space
-  - [Task 1B](#): Predicting change in poverty over time
+  - [Task 1B](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg1/change_in_poverty.html): Predicting change in poverty over time
 - **SDG 2: Zero Hunger**
   - [Task 2A](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg2/weakly_supervised_cropland.html): Cropland mapping
   - [Task 2B1](https://sustainlab-group.github.io/sustainbench/docs/datasets/sdg2/crop_type_mapping_ghana-ss.html): Crop type mapping, in Ghana in South Sudan
@@ -139,10 +139,16 @@ mypy -c "$(jupyter nbconvert path/to/notebook.ipynb --stdout --to script)"
 
 Please cite this article as follows, or use the BibTeX entry below.
 
-> citation
+> C. Yeh, C. Meng, S. Wang, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon, "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning," in _Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)_, Dec. 2021. [Online]. Available: [https://openreview.net/forum?id=5HR3vCylqD](https://openreview.net/forum?id=5HR3vCylqD).
 
 ```tex
-@article{
-    TODO
+@inproceedings{
+    yeh2021sustainbench,
+    title = {{SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning}},
+    author = {Christopher Yeh and Chenlin Meng and Sherrie Wang and Anne Driscoll and Erik Rozi and Patrick Liu and Jihyeon Lee and Marshall Burke and David B. Lobell and Stefano Ermon},
+    booktitle = {Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)},
+    year = {2021},
+    month = {12},
+    url = {https://openreview.net/forum?id=5HR3vCylqD}
 }
 ```
