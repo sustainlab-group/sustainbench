@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1727.5" height="284" clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" version="1.1" viewBox="0 0 1727.5 284" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="linearGradient2184" x1="29.155" x2="192.42" y1="255.4" y2="97.377" gradientTransform="matrix(.26458 0 0 .26458 -.165 -.283)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4daeeb" offset="0"/>
+      <stop stop-color="#bde56c" offset="1"/>
+    </linearGradient>
+    <linearGradient id="linearGradient2430" x1="29.155" x2="192.42" y1="255.4" y2="97.377" gradientTransform="matrix(.99999 0 0 .99999 -.62738 -1.0742)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient2184"/>
+  </defs>
+  <text x="281.47495" y="234.79716" fill="#8fd0a1" font-family="'Source Sans Pro'" font-size="266.67px" letter-spacing="-10px" word-spacing="0px" style="line-height:1.25" xml:space="preserve"><tspan x="281.47495" y="234.79716" fill="#8fd0a1" font-family="'Source Sans Pro'" font-size="266.67px" font-weight="600">SustainBench</tspan></text>
+  <g transform="matrix(3.7795,0,0,3.7795,1.3947,1.0574)" fill="url(#linearGradient2184)">
+    <path d="m5.835 71.861v3h5v-3z"/>
+    <path d="m21.835 66.361v8.4997h5v-8.4997z"/>
+    <path d="m29.835 65.361v9.4997h5v-9.4997z"/>
+    <path d="m13.835 65.861v9h5v-9z"/>
+    <path d="m37.835 61.861v13h5v-13z"/>
+    <path d="m45.835 55.861v19h5v-19z"/>
+    <path d="m53.835 47.861v27h5v-27z"/>
+    <path d="m61.835 31.861v43h5v-43z"/>
+  </g>
+  <path d="M 3.001,284.001 55,240 C 168.76,266.502 251.58,121.5 254,0 132.24,99.258 -35.18,70.552 41.24,225.12 162.12,96.81 191,70.08 193,73 133.495,146.497 64.33,210.33 0,279 Z" fill="url(#linearGradient2430)" stroke-width="3.7795"/>
+  <metadata>
+    <rdf:RDF>
+      <cc:License rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+      <cc:Work rdf:about="">
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

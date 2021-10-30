@@ -30,7 +30,7 @@ remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
 color_scheme: sustainbench
-logo: "/assets/images/logo.png"
+logo: "/assets/images/logo_full_h200.png"
 
 aux_links:
   "SustainBench GitHub":

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="67.205mm" height="75.142mm" version="1.1" viewBox="0 0 67.205 75.142" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="linearGradient2184" x1="29.155" x2="192.42" y1="255.4" y2="97.377" gradientTransform="matrix(.26458 0 0 .26458 -.165 -.283)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4daeeb" offset="0"/>
+      <stop stop-color="#bde56c" offset="1"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(2.805)" stroke-width="1.4142">
+    <path d="m6.4 72.142v3h10v-3z" fill="url(#linearGradient2184)"/>
+    <path d="m22.4 66.642v8.4997h10v-8.4997z" fill="url(#linearGradient2184)"/>
+    <path d="m38.4 62.142v13h10v-13z" fill="url(#linearGradient2184)"/>
+    <path d="m54.4 48.142v27h10v-27z" fill="url(#linearGradient2184)"/>
+  </g>
+  <path d="M 0.795,75.142 14.553,63.5 C 44.652,70.512 66.566,32.146 67.205,0 34.99,26.262 -9.308,18.667 10.911,59.564 42.895,25.616 50.534,18.543 51.065,19.315 35.321,38.761 17.022,55.651 0,73.819 Z" fill="url(#linearGradient2184)"/>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
