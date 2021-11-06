@@ -39,12 +39,6 @@ class BrickKilnDataset(SustainBenchDataset):
             'compressed_size': None}}
 
     def __init__(self, version=None, root_dir='data', download=False, split_scheme='official'):
-        """
-        Args:
-            resize_planet: True if Planet imagery will be resized to 64x64
-            calculate_bands: True if aditional bands (NDVI and GCVI) will be calculated on the fly and appended
-            normalize: True if bands (excluding NDVI and GCVI) wll be normalized
-        """
         self._version = version
         self._data_dir = self.initialize_data_dir(root_dir, download)
         
@@ -62,7 +56,7 @@ class BrickKilnDataset(SustainBenchDataset):
         self._y_array = torch.from_numpy(self.metadata['y'].values)
         self._y_size = 1
         
-        self._metadata_fields = ['y', 'hdf5_file', 'hdf5_idx', 'lon_top_left', 'lat_top_left', 'lon_bottom_right', 'lat_bottom_right', 'indice_offset_num', 'indice_x', 'indice_y']
+        self._metadata_fields = ['y', 'hdf5_file', 'hdf5_idx', 'lon_top_left', 'lat_top_left', 'lon_bottom_right', 'lat_bottom_right', 'indice_x', 'indice_y']
         self._metadata_array = torch.tensor(self.metadata[self.metadata_fields].astype(float).values)
 
         super().__init__(root_dir, download, split_scheme)
