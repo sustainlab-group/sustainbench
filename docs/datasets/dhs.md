@@ -30,19 +30,19 @@ The labels for each of the 6 tasks are as follows:
   - **water quality index**: For each household, water quality is ranked on a 1-5 scale, where 5 is the "highest quality". The water quality index is the cluster-level average score.
   - **sanitation index**: For each household, toilet quality is ranked on a 1-5 scale, where 5 is the "highest quality". The sanitation index is the cluster-level average score.
 
-|                              | # countries | # observations            | # clusters (= labels) |
-|:-----------------------------|------------:|--------------------------:|------------:|
-| asset wealth index           |          48 |      2,079,036 households |      86,936 |
-| women BMI                    |          53 |      1,781,403 women      |      94,866 |
-| child mortality rate         |          56 |      1,936,904 children   |     105,582 |
-| women educational attainment |          56 |      2,910,286 women      |     117,062 |
-| water quality index          |          49 |      2,105,026 households |      87,938 |
-| sanitation index             |          49 |      2,143,329 households |      89,271 |
+|                              | # countries | # observations       | # clusters (= labels) |
+|:-----------------------------|------------:|---------------------:|------------:|
+| asset wealth index           |          48 | 2,079,036 households |      86,936 |
+| women BMI                    |          53 | 1,781,403 women      |      94,866 |
+| child mortality rate         |          56 | 1,936,904 children   |     105,582 |
+| women educational attainment |          56 | 2,910,286 women      |     117,062 |
+| water quality index          |          49 | 2,105,026 households |      87,938 |
+| sanitation index             |          49 | 2,143,329 households |      89,271 |
 
 SustainBench provides both satellite and street-level imagery as model inputs.
 
 - **satellite imagery**: The satellite imagery consists of both daytime images from the Landsat 5/7/8 satellites and nightlights images from the DMSP and VIIRS satellites. While the daytime image bands have a native 30m/pixel resolution, the nightlights images have a lower native resolution and are upsampled using the nearest-neighbors algorithm to match the daytime image resolution. For clusters from surveys taken in 2011 or earlier, the nightlights image comes from DMSP; for clusters from surveys taken in 2012 or later, the nightlights image comes from VIIRS. Because DMSP and VIIRS imagery are not directly comparable, we recommend users to treat DMSP and VIIRS imagery separately in their models.
-- **street-level imagery**: Mapillary images that fall within 0.01 degrees latitude and longitude of a DHS cluster and were captured within 1 year before or after a DHS cluster datapoint were retrieved and matched to their respective cluster. There are a maximum of 100 images per cluster. The shortest side of all images is 1024 pixels. We also provide metadata for each image, including its unique Mapillary ID, latitude, longitude, and timestamp of capture in miliseconds.
+- **street-level imagery**: Mapillary images that fall within 0.1 degrees latitude and longitude of a DHS cluster and were captured within 3 years before or after a DHS cluster datapoint were retrieved and matched to their respective cluster. There are a maximum of 300 images per cluster. The shortest side of all images is 1024 pixels. We also provide metadata for each image, including its unique Mapillary ID, latitude, longitude, and timestamp of capture in miliseconds. Mapillary processes images with [privacy blurring](https://blog.mapillary.com/update/2018/04/19/accurate-privacy-blurring-at-scale.html), blurring faces and license plates.
 
 <figure style="text-align: center">
     <img src="{{ site.baseurl }}/assets/images/landsat.png" width="200" height="200" title="Landsat satellite image">
@@ -70,7 +70,7 @@ We evaluate model performance using the squared Pearson correlation coefficient 
 
 ### Input
 
-The input is multi-modal, consisting of a single 255x255x8px satellite image as well as a set of between 0 and 100 street-level RGB images whose shortest length is 1024px. The first 7 bands of the satellite image are surface reflectance values from the Landsat 5/7/8 satellites and have the following order: blue, green, red, shortwave infrared 1, shortwave infrared 2, thermal, and near infrared. The last band in the satellite image is the nightlights band, from either the DMSP or VIIRS satellite.
+The input is multi-modal, consisting of a single 255x255x8px satellite image as well as a set of between 0 and 300 street-level RGB images whose shortest length is 1024px. The first 7 bands of the satellite image are surface reflectance values from the Landsat 5/7/8 satellites and have the following order: blue, green, red, shortwave infrared 1, shortwave infrared 2, thermal, and near infrared. The last band in the satellite image is the nightlights band, from either the DMSP or VIIRS satellite.
 
 Metadata provided includes the (lat, lon) geocoordinates and country of the cluster, year of the survey, and number of observations within the cluster.
 
