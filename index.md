@@ -6,7 +6,7 @@ nav_order: 1
 
 # SustainBench
 {: .fs-9 }
-A suite of sustainability benchmarks targeting the UN Sustainable Development Goals (SDGs) including No Poverty, Zero Hunger, Good Health and Well-Being, Quality Education, Clean Water and Sanitation, Climate Action, and Life on Land.
+A suite of sustainability benchmarks targeting the UN Sustainable Development Goals (SDGs) including No Poverty, Zero Hunger, Good Health and Well-Being, Quality Education, Clean Water and Sanitation, Climate Action, Global Building and Life on Land.
 {: .fs-6 .fw-300 }
 
 <img src="{{ site.baseurl }}/assets/images/fig2.png" width="800" title="Map of Number of SDGs Covered">
