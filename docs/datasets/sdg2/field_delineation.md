@@ -6,6 +6,7 @@ grand_parent: Datasets
 ---
 
 # Field Delineation (France)
+*If you have any questions about this dataset, please reach out to Chenlin Meng ([chenlin@stanford.edu](mailto:chenlin@stanford.edu)).*
 
 Field delineation is important in developing and managing agricultural-related policies. Given an input satellite image, the goal is to output the delineated boundaries between farm parcels, or the segmentation masks of farm parcels.
 
@@ -18,7 +19,7 @@ Field delineation is important in developing and managing agricultural-related p
 
 ## Details
 
-As introduced in [[1]](#references), the dataset consists of Sentinel-2 satellite imagery in France in 2017. The image has resolution 224x224 corresponding to a 2.24kmx2.24km area on the ground. Each satellite image comes along with the corresponding binary masks of boundaries and areas of farm parcels, which are grey scale images with resolution 224x224. The dataset consists of 1572 training samples, 198 validation samples, and 196 test samples. We use a different data split from Aung et al. to remove overlapping between the train, validation and test split.
+As introduced in [[1]](#references), the dataset consists of Sentinel-2 satellite imagery in France in 2017. The image has resolution 224x224 corresponding to a 2.24kmx2.24km area on the ground. Each satellite image comes along with the corresponding binary masks of boundaries and areas of farm parcels, which are grey scale images with resolution 224x224. The data preprocessing pipeline can be found [here](https://github.com/sustainlab-group/ParcelDelineation). The dataset consists of 1572 training samples, 198 validation samples, and 196 test samples. We use a different data split from Aung et al. to remove overlapping between the train, validation and test split.
 
 ## Data format
 ### Input
@@ -39,6 +40,8 @@ DICE = 2TP / (2TP + FP + FN)
 ```
 where "TP" denotes True Positive, "FP" denotes False Positive, and "FN" denotes False Negative. As discussed in [[1]](#references), the Dice score Equation has been widely used in image segmentation tasks and is often argued to be a better metric than accuracy when class imbalance between boundary and non-boundary pixels exists.
 
+## Baseline Model
+Documentations about the baseline model be found [here](https://github.com/sustainlab-group/ParcelDelineation).
 
 ## Download
 

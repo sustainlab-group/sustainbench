@@ -6,6 +6,7 @@ use_math: true
 ---
 
 # DHS survey-based datasets
+*If you have any questions about the satellite imagery, please reach out to Christopher Yeh ([cyeh@caltech.edu](mailto:cyeh@caltech.edu)). If you have any questions about the street-level imagery, please reach out to Jihyeon Lee ([jihyeon@cs.stanford.edu](mailto:jihyeon@cs.stanford.edu)). If you have any questions about the DHS labels, please reach out to Anne Driscoll ([annedriscoll@cmu.edu](mailto:annedriscoll@cmu.edu)).*
 
 Despite decades of progress, as of 2020 an estimated 9.5% of the global population remains in extreme poverty, 3.8% of children die before age 5 (as of 2019), 47% of children do not complete secondary school (as of 2019), 25.7% of people lack safely managed drinking water, and 46% of people lack safely managed sanitation [[1]](#references). While such statistics are generally accurate at the global level, significantly less data is available at local or even country levels. In most African countries, for example, nationally representative consumption or asset wealth surveys, the key source of internationally comparable poverty measurements, are only available once every four years or less [[2]](#references). In contrast, satellite and street-level imagery are becoming increasingly available, and previous works [[2,3]](#references) have shown that such imagery can be predictive of SDG-relevant local-level statistics.
 
@@ -44,7 +45,7 @@ Water quality and toilet quality are converted to the 1-5 scale from the raw DHS
 SustainBench provides both satellite and street-level imagery as model inputs.
 
 - **satellite imagery**: The satellite imagery consists of both daytime images from the Landsat 5/7/8 satellites and nightlights images from the DMSP and VIIRS satellites. While the daytime image bands have a native 30m/pixel resolution, the nightlights images have a lower native resolution and are upsampled using the nearest-neighbors algorithm to match the daytime image resolution. For clusters from surveys taken in 2011 or earlier, the nightlights image comes from DMSP; for clusters from surveys taken in 2012 or later, the nightlights image comes from VIIRS. Because DMSP and VIIRS imagery are not directly comparable, we recommend users to treat DMSP and VIIRS imagery separately in their models.
-- **street-level imagery**: Mapillary images that fall within 0.1 degrees latitude and longitude of a DHS cluster and were captured within 3 years before or after a DHS cluster datapoint were retrieved and matched to their respective cluster. The shortest side of all images is 1024 pixels. We also provide metadata for each image, including its unique Mapillary ID, latitude, longitude, and timestamp of capture in miliseconds. Mapillary processes images with [privacy blurring](https://blog.mapillary.com/update/2018/04/19/accurate-privacy-blurring-at-scale.html), blurring faces and license plates. We obtained Mapillary images for 22,052 DHS clusters (18.7%) spanning 48 countries. Of these clusters with Mapillary images, the number of images per cluster ranges from 1 to a maximum of 300, with a mean of 76.3 and median of 94.0. A total of 1,682,613 Mapillary images are included.
+- **street-level imagery**: Mapillary images that fall within 0.1 degrees latitude and longitude of a DHS cluster and were captured within 3 years before or after a DHS cluster datapoint were retrieved and matched to their respective cluster. The shortest side of all images is 1024 pixels. We also provide metadata for each image, including its unique Mapillary ID, latitude, longitude, and timestamp of capture in miliseconds. Mapillary processes images with [privacy blurring](https://blog.mapillary.com/update/2018/04/19/accurate-privacy-blurring-at-scale.html), blurring faces and license plates. We obtained Mapillary images for 22,052 DHS clusters (18.7%) spanning 48 countries. Of these clusters with Mapillary images, the number of images per cluster ranges from 1 to a maximum of 300, with a mean of 76.3 and median of 94.0. A total of 1,682,613 Mapillary images are included. The data preprocessing pipeline can be found [here](https://github.com/sustainlab-group/mapillarygcn).
 
 <figure style="text-align: center">
     <img src="{{ site.baseurl }}/assets/images/landsat.png" width="200" height="200" title="Landsat satellite image">
@@ -86,6 +87,10 @@ The model output has between 1 to 6 values, depending on which of the 6 regressi
 ## Dataloader Configuration
 
 Use the ``dhs_dataset`` in the SustainBench dataloader.
+
+## Baseline Model
+
+For the baseline models using Mapillary street-level imagery to predict poverty, population, and women's BMI, documentation can be found [here](https://github.com/sustainlab-group/mapillarygcn).
 
 ## Download
 

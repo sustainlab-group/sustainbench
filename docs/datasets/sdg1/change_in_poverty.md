@@ -7,6 +7,7 @@ use_math: true
 ---
 
 # Change in poverty over time
+*If you have any questions about this dataset, please reach out to Christopher Yeh ([cyeh@caltech.edu](mailto:cyeh@caltech.edu)).*
 
 Despite decades of progress, as of 2020 an estimated 9.5% of the global population remains in extreme poverty [[1]](#references). While such statistics are generally accurate at the global level, significantly less data is available at local or even country levels. In most African countries, for example, nationally representative consumption or asset wealth surveys, the key source of internationally comparable poverty measurements, are only available once every four years or less [[2]](#references). In contrast, satellite and street-level imagery are becoming increasingly available, and previous works [[2,3]](#references) have shown that such imagery can be predictive of SDG-relevant local-level statistics.
 

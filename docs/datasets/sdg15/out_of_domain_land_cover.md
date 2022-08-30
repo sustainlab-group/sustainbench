@@ -7,6 +7,8 @@ grand_parent: Datasets
 
 # Out-of-Domain Land Cover Classification
 
+*If you have any questions about this dataset, please reach out to Sherrie Wang ([sherwang@berkeley.edu](mailto:sherwang@berkeley.edu)).*
+
 While ground truth labels are scarce in low-income regions, they can be plentiful in high-income regions. This suggests that a second strategy for increasing performance in label-scarce regions is to transfer knowledge learned from classifying land cover in high-income regions to low-income ones.
 
 <p style="text-align: center">

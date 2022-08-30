@@ -6,6 +6,9 @@ grand_parent: Datasets
 ---
 
 # Weakly Supervised Cropland Segmentation
+
+*If you have any questions about this dataset, please reach out to Sherrie Wang ([sherwang@berkeley.edu](mailto:sherwang@berkeley.edu)).*
+
 One indicator for SDG 2 is the proportion of agricultural area under productive and sustainable agriculture. Existing state-of-the-art datasets on land cover are derived from satellite time series and include a cropland class. However, the maps are known to have large errors in regions of the world like Sub-Saharan Africa where ground labels are sparse [[1]](#references). Therefore, while mapping cropland is largely a solved problem in settings with ample labels, devising methods to efficiently generate georeferenced labels and accurately map cropland in low-resource regions remains an important and challenging research direction.
 
 <p style="text-align: center">

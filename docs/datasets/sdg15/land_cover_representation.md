@@ -7,6 +7,8 @@ grand_parent: Datasets
 
 # Representation Learning for Land Cover Classification
 
+*If you have any questions about this dataset, please reach out to Sherrie Wang ([sherwang@berkeley.edu](mailto:sherwang@berkeley.edu)).*
+
 Existing state-of-the-art land cover maps are significantly more accurate in high-income regions than low-income ones, as the latter have few ground truth labels. One approach to increase the performance of land cover classification in regions with few labels is to use unsupervised or self-supervised learning to improve satellite/aerial image representations, so that downstream tasks require fewer labels to perform well.
 
 <p style="text-align: center">

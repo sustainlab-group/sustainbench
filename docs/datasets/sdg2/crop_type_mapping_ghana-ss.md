@@ -7,6 +7,8 @@ grand_parent: Datasets
 
 # Crop Type Mapping (Ghana and South Sudan)
 
+*If you have any questions about this dataset, please reach out to Sherrie Wang ([sherwang@berkeley.edu](mailto:sherwang@berkeley.edu)). If you have any questions about the dataloader, please reach out to Erik Rozi ([erikrozi@stanford.edu](mailto:erikrozi@stanford.edu)).*
+
 Spatially disaggregated crop type maps are needed to assess agricultural diversity and estimate yields. In high-income countries across North America and Europe, crop type maps are produced annually by departments of agriculture using farm surveys and satellite imagery [[1]](#references). However, no such maps are regularly available for middle- and low-income countries. Mapping crop types in the Global South faces challenges of irregularly shaped fields, small fields, sparse ground truth labels, and highly heterogeneous landscapes [[2]](#references).
 
 <p style="text-align: center">
@@ -31,6 +33,10 @@ To load the ``Crop Type Mapping`` dataset, use ``africa_crop_type_mapping`` in t
 2. Use ``calculate_bands=True`` to add additional NDVI and GCVI bands to S2 and PlanetScope Imagery.
 3. Use ``normalize=True`` to normalize bands based on precomputed mean and std.
 4. Use ``resize_planet=True`` to resize Planetscope imagery to 64x64 pixels (PlanetScope imagery is larger than S1 and S2 imagery by default.)
+
+## Baseline Model
+
+Documentation about the baseline model can be found [here](https://github.com/roserustowicz/crop-type-mapping).
 
 ## Download
 

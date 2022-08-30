@@ -36,17 +36,17 @@ conda env update -f env_bench.yml --prune
 
 The conda environment files default to CPU-only packages. If you have a GPU, please comment/uncomment the appropriate lines in the environment files; you may need to also install CUDA 10 or 11 and cuDNN 7.
 
-## Downloading and training on SustainBench
+## Downloading SustainBench
 
-If running these scripts for the first time, you may need to download the datasets. Due to a quota on data downloads on Google Drive, we have disabled automatic download for SustainBench datasets. Manual download instructions for datasets are provided in each respective dataset web page.
+If running these scripts for the first time, you may need to download the datasets by setting ``download=True``. Due to a quota on data downloads on Google Drive, we have disabled automatic download for SustainBench datasets (e.g., ``download=False`` by default). Manual download instructions for datasets are provided in each respective dataset web page.
 
-### Evaluate trained models
+<!-- ### Evaluate trained models
 
 We use a similar evaluation script as [WILDS](https://wilds.stanford.edu) which aggregates prediction CSV files and reports on combined evaluation. To use this, run
 
 ```bash
 python examples/evaluate.py <predictions_dir> <output_dir> --root-dir <root_dir>
-```
+``` -->
 
 ## Using the SustainBench package
 ### Data
@@ -55,10 +55,10 @@ SustainBench provides a standardized interface for all datasets in the benchmark
 ```python
 >>> from sustainbench import get_dataset
 >>> from sustainbench.common.data_loaders import get_train_loader
->>> import torchvision.transforms as transforms
+
 
 # Load the full dataset, and download it if necessary
->>> dataset = get_dataset(dataset='dhs_dataset')
+>>> dataset = get_dataset(dataset='crop_delineation', download=True)
 
 # Get the training set
 >>> train_data = dataset.get_subset('train')
@@ -67,7 +67,7 @@ SustainBench provides a standardized interface for all datasets in the benchmark
 >>> train_loader = get_train_loader('standard', train_data, batch_size=16)
 
 # Train loop
->>> for x, y_true, metadata in train_loader:
+>>> for x, y_true in train_loader:
 ...   ...
 ```
 
@@ -76,7 +76,11 @@ SustainBench provides a standardized interface for all datasets in the benchmark
 SustainBench standardizes evaulation for each dataset.
 
 ```python
+>>> from sustainbench import get_dataset
 >>> from sustainbench.common.data_loaders import get_eval_loader
+
+# Load the full dataset, and download it if necessary
+>>> dataset = get_dataset(dataset='crop_delineation', download=True)
 
 # Get the test set
 >>> test_data = dataset.get_subset('test')
@@ -85,11 +89,11 @@ SustainBench standardizes evaulation for each dataset.
 >>> test_loader = get_eval_loader('standard', test_data, batch_size=16)
 
 # Get predictions for the full test set
->>> for x, y_true, metadata in test_loader:
+>>> for x, y_true in test_loader:
 ...   y_pred = model(x)
-...   [accumulate y_true, y_pred, metadata]
+...   [accumulate y_true, y_pred]
 
 # Evaluate
->>> dataset.eval(all_y_pred, all_y_true, all_metadata)
+>>> dataset.eval(all_y_pred, all_y_true)
 {'recall_macro_all': 0.66, ...}
 ```

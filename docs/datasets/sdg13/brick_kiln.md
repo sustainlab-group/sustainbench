@@ -6,6 +6,7 @@ grand_parent: Datasets
 ---
 
 # Brick Kiln Classification (Bangladesh)
+*If you have any questions about this dataset, please reach out to Jihyeon Lee ([jihyeon@cs.stanford.edu](mailto:jihyeon@cs.stanford.edu)). If you have any questions about the dataloader, please reach out to Erik Rozi ([erikrozi@stanford.edu](mailto:erikrozi@stanford.edu)).*
 
 Monitoring compliance with environmental regulations is a key step to combat climate change. In South Asia, brick manufacturing is a major source of pollution and carbon emissions, but because it is an informal industry, it is difficult to monitor and regulate, especially for low-income governments [[1]](#references). Automatically identifying brick kilns from satellite imagery is a low-cost, scalable approach to monitor sources of pollution and study their effect on nearby populations.
 
@@ -18,7 +19,7 @@ Monitoring compliance with environmental regulations is a key step to combat cli
 
 ## Details
 
-Lee, Brooks, et al. [[1]](#references) developed a model to classify high-resolution imagery as containing a brick kiln or not (and used gradient attribution to identify the exact location of the kiln). We focus on the task of classification, where "no kiln" (class 0) means no kiln is present in the image and "yes kiln" class 1 means there is a kiln present. The high-res imagery used in [[1]](#references) was not released publicly because it was proprietary, so we provide a low-resolution alternative using Sentinel-2 imagery from Google Earth Engine. We retrieve 13 bands, B1 through B12, as documented in the [Earth Engine catalog](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR#bands). The imagery is from October 2018 to May 2019, matching the time period from which the ground truth kiln locations were found [[1]](#references). There are 6,329 positive examples and 67,284 negative examples total. We provide a train, validation, and test split of 80-10-10 that preserves the relative proportions of classes across the splits. We evaluate models by using overall accuracy, precision, recall, and AUC score.
+Lee, Brooks, et al. [[1]](#references) developed a model to classify high-resolution imagery as containing a brick kiln or not (and used gradient attribution to identify the exact location of the kiln). We focus on the task of classification, where "no kiln" (class 0) means no kiln is present in the image and "yes kiln" class 1 means there is a kiln present. The high-res imagery used in [[1]](#references) was not released publicly because it was proprietary, so we provide a low-resolution alternative using Sentinel-2 imagery from Google Earth Engine. We retrieve 13 bands, B1 through B12, as documented in the [Earth Engine catalog](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR#bands). The imagery is from October 2018 to May 2019, matching the time period from which the ground truth kiln locations were found [[1]](#references). There are 6,329 positive examples and 67,284 negative examples total. We provide a train, validation, and test split of 80-10-10 that preserves the relative proportions of classes across the splits. We evaluate models by using overall accuracy, precision, recall, and AUC score. The data preprocessing pipeline can be found [here](https://github.com/mliu356/kiln-scaling).
 
 The images have been stored as hdf5 files, each of which has four keys: `bounds`, `images`, `indices`, and `labels`.
 - `bounds`, size (4,): longitude and latitude of top left corner, longitude and latitude of bottom right corner
@@ -37,6 +38,10 @@ A predicted class of 0 (no kiln) or 1 (yes kiln).
 ## Dataloader Configuration
 
 To load the ``Brick Kiln Classification`` dataset, use ``brick_kiln`` in the SustainBench dataloader.
+
+## Baseline Model
+
+Documentation about the baseline model can be found [here](https://www.pnas.org/doi/10.1073/pnas.2018863118).
 
 ## Download
 
