@@ -1,7 +1,7 @@
 # Adapted from https://github.com/snap-stanford/ogb/blob/master/ogb/version.py
 
-import os
 import logging
+import os
 from threading import Thread
 
 __version__ = '1.1.0'
@@ -12,6 +12,7 @@ try:
 except ImportError:
     check_outdated = None
 
+
 def check():
     try:
         is_outdated, latest = check_outdated('sustainbench', __version__)
@@ -21,6 +22,7 @@ def check():
                 f'{__version__}, while the latest version is {latest}.')
     except Exception:
         pass
+
 
 if check_outdated is not None:
     thread = Thread(target=check)

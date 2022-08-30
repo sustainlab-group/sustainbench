@@ -1,14 +1,18 @@
+from __future__ import annotations
+
 import sustainbench
 
-def get_dataset(dataset, version=None, **dataset_kwargs):
-    """
-    Returns the appropriate SustainBench dataset class.
-    Input:
-        dataset (str): Name of the dataset
-        version (str): Dataset version number, e.g., '1.0'.
-                       Defaults to the latest version.
-        dataset_kwargs: Other keyword arguments to pass to the dataset constructors.
-    Output:
+
+def get_dataset(dataset: str, version: str | None = None, **dataset_kwargs):
+    """Returns the appropriate SustainBench dataset class.
+
+    Args:
+        dataset: name of the dataset
+        version: optional dataset version number, e.g., '1.0'. Defaults to the
+            latest version.
+        dataset_kwargs: other keyword arguments to pass to dataset constructor
+
+    Returns:
         The specified SustainBenchDataset class.
     """
     if version is not None:
@@ -20,7 +24,7 @@ def get_dataset(dataset, version=None, **dataset_kwargs):
     if dataset == 'poverty':
         if version == '1.0':
             from sustainbench.datasets.archive.poverty_v1_0_dataset import PovertyMapDataset
-        else:            
+        else:
             from sustainbench.datasets.poverty_dataset import PovertyMapDataset
         return PovertyMapDataset(version=version, **dataset_kwargs)
 
@@ -35,18 +39,21 @@ def get_dataset(dataset, version=None, **dataset_kwargs):
         from sustainbench.datasets.croptypemapping_dataset import CropTypeMappingDataset
         return CropTypeMappingDataset(version=version, **dataset_kwargs)
 
-    elif dataset == 'crop_seg':
+    elif dataset == 'crop_type_kenya':
+        from sustainbench.datasets.croptypemapping_kenya import CropTypeMappingKenyaDataset
+        return CropTypeMappingKenyaDataset(version=version, **dataset_kwargs)
+
+    elif dataset == 'crop_delineation':
         if version == '1.0':
             from sustainbench.datasets.archive.crop_seg_v1_0_dataset import CropSegmentationDataset
         else:
             from sustainbench.datasets.crop_seg_dataset import CropSegmentationDataset
         return CropSegmentationDataset(version=version, **dataset_kwargs)
-    
+
     elif dataset == 'crop_yield':
         from sustainbench.datasets.crop_yield_dataset import CropYieldDataset
         return CropYieldDataset(version=version, **dataset_kwargs)
-    
+
     elif dataset == 'brick_kiln':
         from sustainbench.datasets.brickkiln_dataset import BrickKilnDataset
         return BrickKilnDataset(version=version, **dataset_kwargs)
-
