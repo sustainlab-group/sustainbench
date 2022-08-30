@@ -1,21 +1,10 @@
 from pathlib import Path
-import shutil
-import pandas as pd
-import torch
-from torch.utils.data import Dataset
-import pickle
+
 import numpy as np
-import torchvision.transforms.functional as F
-from torchvision import transforms
-import tarfile
-import datetime
-import pytz
+import pandas as pd
 from PIL import Image
-from tqdm import tqdm
 from sklearn.metrics import f1_score, accuracy_score, precision_recall_fscore_support
-from sustainbench.common.utils import subsample_idxs
-from sustainbench.common.metrics.all_metrics import Accuracy
-from sustainbench.common.grouper import CombinatorialGrouper
+
 from sustainbench.datasets.sustainbench_dataset import SustainBenchDataset
 
 
@@ -39,18 +28,17 @@ class CropSegmentationDataset(SustainBenchDataset):
         year={2020}
     }
     """
-    _dataset_name = 'crop_seg'
+    _dataset_name = 'crop_delineation'
     _versions_dict = {
         '1.1': {
-            'download_url': 'https://worksheets.codalab.org/rest/bundles/0xaec91eb7c9d548ebb15e1b5e60f966ab/contents/blob/', # TODO, change url
-            'compressed_size': 53_893_324_800 # TODO: change compressed size
+            'download_url': 'https://drive.google.com/uc?id=1gq9v_4acxkx-HNHKesMWbHBT3nwvtCuN',
+            'compressed_size': 53_893_324_800  # TODO: change compressed size
         }
     }
 
     def __init__(self, version=None, root_dir='data', download=False, split_scheme='official', oracle_training_set=False, seed=111, filled_mask=False, use_ood_val=False):
         self._version = version
-        self._data_dir = "/atlas/u/chenlin/dataset_benchmark_private/hanBurakData/sentinel_jul_sept_v2" # TODO: implementation only
-        #self._data_dir = self.initialize_data_dir(root_dir, download) # TODO: uncomment
+        self._data_dir = self.initialize_data_dir(root_dir, download)
 
         self._split_dict = {'train': 0, 'val': 1, 'test': 2}
         self._split_names = {'train': 'Train', 'val': 'Val', 'test': 'Test'}
@@ -60,8 +48,8 @@ class CropSegmentationDataset(SustainBenchDataset):
 
         self.root = Path(self._data_dir)
         self.seed = int(seed)
-        self._original_resolution = (224, 224) #checked
-        
+        self._original_resolution = (224, 224)  # checked
+
         self.metadata = pd.read_csv(self.root / 'clean_data.csv')
         self.filled_mask = filled_mask
 
@@ -89,14 +77,6 @@ class CropSegmentationDataset(SustainBenchDataset):
 
         self._metadata_fields = ['y', 'max_lat', 'max_lon', 'min_lat', 'min_lon']
         self._metadata_array = self.metadata[self._metadata_fields].to_numpy()
-        #torch.from_numpy(self.metadata[self._metadata_fields].to_numpy())
-
-        # self._eval_groupers = {
-        #     'max_lat': CombinatorialGrouper(dataset=self, groupby_fields=['max_lat']),
-        #     'max_lon': CombinatorialGrouper(dataset=self, groupby_fields=['max_lon']),
-        #     'min_lat': CombinatorialGrouper(dataset=self, groupby_fields=['min_lat']),
-        #     'min_lon': CombinatorialGrouper(dataset=self, groupby_fields=['min_lon']),
-        # }
 
         super().__init__(root_dir, download, split_scheme)
 
@@ -106,6 +86,7 @@ class CropSegmentationDataset(SustainBenchDataset):
         """
         idx = self.full_idxs[idx]
         img = Image.open(self.root / 'imgs' / f'{idx}.jpeg').convert('RGB')
+        img = np.asarray(img)
         return img
 
     def get_output_image(self, path):
@@ -113,6 +94,7 @@ class CropSegmentationDataset(SustainBenchDataset):
         Returns x for a given idx.
         """
         img = Image.open(path).convert('RGB')
+        img = np.asarray(img)
         return img
 
     def crop_segmentation_metrics(self, y_true, y_pred, binarized=True):
@@ -132,7 +114,7 @@ class CropSegmentationDataset(SustainBenchDataset):
         print("Precision recall fscore", precision_recall)
         return f1, acc, precision_recall
 
-    def eval(self, y_pred, y_true, metadata, binarized=False): # TODO
+    def eval(self, y_pred, y_true, metadata, binarized=False):  # TODO
         """
         Computes all evaluation metrics.
         Args:
@@ -146,38 +128,6 @@ class CropSegmentationDataset(SustainBenchDataset):
         """
         f1, acc, precision_recall = self.crop_segmentation_metrics(y_true, y_pred, binarized=binarized)
         results = [f1, acc, precision_recall]
-        results_str = 'Dice/ F1 score: {}, Accuracy score: {}, Precision recall fscore: '.format(f1, acc, precision_recall)
+        results_str = 'Dice/ F1 score: {}, Accuracy score: {}, Precision recall fscore: {}'.format(f1, acc, precision_recall)
         return results, results_str
 
-        # metric = Accuracy(prediction_fn=prediction_fn)
-        # # Overall evaluation + evaluate by year
-        # all_results, all_results_str = self.standard_group_eval(
-        #     metric,
-        #     self._eval_groupers['year'],
-        #     y_pred, y_true, metadata)
-        # # Evaluate by region and ignore the "Other" region
-        # region_grouper = self._eval_groupers['region']
-        # region_results = metric.compute_group_wise(
-        #     y_pred,
-        #     y_true,
-        #     region_grouper.metadata_to_group(metadata),
-        #     region_grouper.n_groups)
-        # all_results[f'{metric.name}_worst_year'] = all_results.pop(metric.worst_group_metric_field)
-        # region_metric_list = []
-        # for group_idx in range(region_grouper.n_groups):
-        #     group_str = region_grouper.group_field_str(group_idx)
-        #     group_metric = region_results[metric.group_metric_field(group_idx)]
-        #     group_counts = region_results[metric.group_count_field(group_idx)]
-        #     all_results[f'{metric.name}_{group_str}'] = group_metric
-        #     all_results[f'count_{group_str}'] = group_counts
-        #     if region_results[metric.group_count_field(group_idx)] == 0 or "Other" in group_str:
-        #         continue
-        #     all_results_str += (
-        #         f'  {region_grouper.group_str(group_idx)}  '
-        #         f"[n = {region_results[metric.group_count_field(group_idx)]:6.0f}]:\t"
-        #         f"{metric.name} = {region_results[metric.group_metric_field(group_idx)]:5.3f}\n")
-        #     region_metric_list.append(region_results[metric.group_metric_field(group_idx)])
-        # all_results[f'{metric.name}_worst_region'] = metric.worst(region_metric_list)
-        # all_results_str += f"Worst-group {metric.name}: {all_results[f'{metric.name}_worst_region']:.3f}\n"
-        #
-        # return all_results, all_results_str

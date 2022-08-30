@@ -1,15 +1,13 @@
 from pathlib import Path
-import pickle
 
 import numpy as np
 import pandas as pd
 import torch
-from torch.utils.data import Dataset
 
 from sustainbench.datasets.sustainbench_dataset import SustainBenchDataset
 from sustainbench.common.metrics.all_metrics import MSE, PearsonCorrelation
 from sustainbench.common.grouper import CombinatorialGrouper
-from sustainbench.common.utils import subsample_idxs, shuffle_arr
+from sustainbench.common.utils import subsample_idxs
 
 DATASET = '2009-17'
 BAND_ORDER = ['BLUE', 'GREEN', 'RED', 'SWIR1', 'SWIR2', 'TEMP1', 'NIR', 'NIGHTLIGHTS']
@@ -62,8 +60,8 @@ def split_by_countries(idxs, ood_countries, metadata):
     return idxs[~is_ood], idxs[is_ood]
 
 
-class PovertyMapDataset(SustainBenchDataset):
-    """The PovertyMap poverty measure prediction dataset.
+class DHSDataset(SustainBenchDataset):
+    """The DHS measure prediction dataset.
 
     This is a processed version of LandSat 5/7/8 Surface Reflectance,
     DMSP-OLS, and VIIRS Nightlights satellite imagery originally
@@ -95,8 +93,6 @@ class PovertyMapDataset(SustainBenchDataset):
         Each image is annotated with location coordinates (lat/lon, noised for
         anonymity), survey year, urban/rural classification, country.
 
-    Website: https://github.com/sustainlab-group/africa_poverty
-
     Original publication:
     @article{yeh2020using,
         author = {Yeh, Christopher and Perez, Anthony and Driscoll, Anne and
@@ -118,7 +114,7 @@ class PovertyMapDataset(SustainBenchDataset):
     License:
         LandSat/DMSP/VIIRS data is U.S. Public Domain.
     """
-    _dataset_name = 'poverty'
+    _dataset_name = 'dhs_dataset'
     _versions_dict = {
         #'1.0': {
         #    'download_urls': {
@@ -155,7 +151,7 @@ class PovertyMapDataset(SustainBenchDataset):
         self._split_dict = {'train': 0, 'id_val': 1, 'id_test': 2, 'val': 3, 'test': 4}
         self._split_names = {'train': 'Train', 'id_val': 'ID Val', 'id_test': 'ID Test', 'val': 'OOD Val', 'test': 'OOD Test'}
 
-        if split_scheme=='official':
+        if split_scheme == 'official':
             split_scheme = 'countries'
         self._split_scheme = split_scheme
         if self._split_scheme != 'countries':
@@ -196,7 +192,7 @@ class PovertyMapDataset(SustainBenchDataset):
                 elif split == 'train':
                     idxs = subsample_idxs(idxs, take_rest=True, num=num_eval, seed=ord(fold))
                 else:
-                    eval_idxs  = subsample_idxs(idxs, take_rest=False, num=num_eval, seed=ord(fold))
+                    eval_idxs = subsample_idxs(idxs, take_rest=False, num=num_eval, seed=ord(fold))
 
                 if split != 'train':
                     if split == 'id_val':
@@ -249,7 +245,7 @@ class PovertyMapDataset(SustainBenchDataset):
             - results (dictionary): Dictionary of evaluation metrics
             - results_str (str): String summarizing the evaluation metrics
         """
-        assert prediction_fn is None, "PovertyMapDataset.eval() does not support prediction_fn"
+        assert prediction_fn is None, "DHSDataset.eval() does not support prediction_fn"
 
         metrics = [MSE(), PearsonCorrelation()]
 
